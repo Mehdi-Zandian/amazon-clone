@@ -1,3 +1,4 @@
+import HomeScreen from "../components/HomeScreen/HomeScreen";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -5,8 +6,7 @@ function App() {
     <Router>
       <div className="app">
         <Routes>
-          <Route exact path="/" />
-
+          <Route exact path="/" element={<HomeScreen />} />
           {/* Checkout */}
           {/* Login page */}
           {/* 404 page */}
