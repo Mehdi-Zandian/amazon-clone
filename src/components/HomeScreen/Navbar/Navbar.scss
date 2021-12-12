@@ -1,0 +1,71 @@
+.navbar {
+  background-color: #131921;
+
+  .nav__logo {
+    object-fit: contain;
+    width: 120px;
+    transition: all 0.3s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .navbar__search {
+    flex: 1;
+
+    .navbar__searchInput {
+      height: 35px !important;
+      outline: none;
+    }
+
+    .navbr__searchIcon {
+      width: 30px !important;
+      height: 35px !important;
+      padding: 2px;
+      background-color: #cd9042;
+      cursor: pointer;
+    }
+  }
+
+  .nav__options {
+    .nav__optionsFirstLine {
+      font-size: 11px;
+      line-height: 1.2;
+
+      & ~ span {
+        font-size: 13px;
+        font-weight: bolder;
+      }
+    }
+
+    .nav__optionNumber {
+      font-size: 10px;
+      right: -6px;
+      top: -4px;
+    }
+  }
+}
+
+// Navbar Responsive code
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+
+    .nav__options {
+      width: 90%;
+      padding: 10px;
+      box-shadow: #111 0 0 10px;
+      border-radius: 5px;
+      background-color: #232f3e;
+      justify-content: space-between !important;
+      margin: 15px 0;
+    }
+
+    .navbar__search {
+      width: 90%;
+      margin-top: 10px;
+      box-shadow: #111 0 0 10px;
+    }
+  }
+}
