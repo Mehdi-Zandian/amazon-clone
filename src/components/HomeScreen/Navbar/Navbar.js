@@ -1,3 +1,4 @@
+import React from "react";
 import { Link } from "react-router-dom";
 // UI
 import "./Navbar.scss";
@@ -8,7 +9,7 @@ import Logo from "../../../assets/Logo/logo.PNG";
 function Navbar() {
   return (
     <div
-      className="navbar w-100 m-0 p-0 position-fixed top-0"
+      className="navbar w-100 m-0 p-0 position-sticky top-0"
       style={{ zIndex: "100" }}
     >
       <Link to="/">
@@ -66,4 +67,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default React.memo(Navbar);

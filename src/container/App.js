@@ -1,4 +1,5 @@
 import HomeScreen from "../components/HomeScreen/HomeScreen";
+import CheckoutScreen from "../components/CheckoutScreen/CheckoutScreen";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
       <div className="app">
         <Routes>
           <Route exact path="/" element={<HomeScreen />} />
-          {/* Checkout */}
+          <Route exact path="/checkout" element={<CheckoutScreen />} />
           {/* Login page */}
           {/* 404 page */}
         </Routes>
