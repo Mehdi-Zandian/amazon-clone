@@ -1,0 +1,29 @@
+.homeScreen__wrapper {
+  max-width: 1500px;
+
+  .homeScreen__banner {
+    background: center no-repeat;
+    background-image: url("../../assets/banner/prime-day-banner.jpg");
+    background-size: cover;
+    object-fit: cover;
+    height: 450px;
+
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 90%,
+      rgba(0, 0, 0, 0)
+    );
+  }
+}
+
+@media (max-width: 1175px) {
+  .homeScreen__wrapper {
+    .homeScreen__banner {
+      mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1) 80%,
+        rgba(0, 0, 0, 0)
+      );
+    }
+  }
+}
