@@ -1,6 +1,5 @@
 import Navbar from "./Navbar/Navbar";
 // UI
-import Banner from "../../assets/banner/prime-day-banner.jpg";
 import "./HomeScreen.scss";
 
 function HomeScreen() {
@@ -8,11 +7,7 @@ function HomeScreen() {
     <div>
       <Navbar />
       <div className="homeScreen__wrapper mx-auto">
-        <img
-          src={Banner}
-          className="homeScreen__banner w-100"
-          alt="Prime day"
-        />
+        <div className="homeScreen__banner w-100"></div>
       </div>
     </div>
   );
