@@ -1,18 +1,33 @@
 .homeScreen__wrapper {
-  max-width: 1500px;
+  max-width: 1450px;
 
   .homeScreen__banner {
     background: center no-repeat;
     background-image: url("../../assets/banner/prime-day-banner.jpg");
     background-size: cover;
     object-fit: cover;
-    height: 450px;
-
+    height: 350px;
+    z-index: -1;
+    margin-bottom: -50px;
     mask-image: linear-gradient(
       to bottom,
-      rgba(0, 0, 0, 1) 90%,
+      rgba(0, 0, 0, 1) 75%,
       rgba(0, 0, 0, 0)
     );
+  }
+  .homeScreen__productsBanner {
+    grid-column: 1/5;
+    mask-image: radial-gradient(
+      circle at 50% 50%,
+      rgba(0, 0, 0, 1) 75%,
+      rgba(0, 0, 0, 0)
+    );
+  }
+
+  .homeScreen__row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
   }
 }
 
@@ -24,6 +39,38 @@
         rgba(0, 0, 0, 1) 80%,
         rgba(0, 0, 0, 0)
       );
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .homeScreen__wrapper {
+    .homeScreen__productsBanner {
+      grid-column: 1/4;
+    }
+    .homeScreen__row {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .homeScreen__wrapper {
+    .homeScreen__productsBanner {
+      grid-column: 1/3;
+    }
+    .homeScreen__row {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+@media (max-width: 576px) {
+  .homeScreen__wrapper {
+    .homeScreen__productsBanner {
+      grid-column: 1/1;
+    }
+    .homeScreen__row {
+      grid-template-columns: repeat(1, 1fr) !important;
     }
   }
 }
