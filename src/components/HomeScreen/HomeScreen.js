@@ -9,8 +9,8 @@ import Banner from "../../assets/banner/prime-day-product-banner.jpg";
 import { Fragment, useEffect, useState } from "react";
 
 function HomeScreen() {
+  // get products from API
   const [products, setProducts] = useState(null);
-
   useEffect(() => {
     async function fetch() {
       const res = await axios.get(`${requests.fetchAllProducts}?limit=15`);

@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+// context
+import { useStateValue } from "../../../StateContext/StateProvider";
 // UI
 import "./Navbar.scss";
 import { MdSearch } from "react-icons/md";
@@ -7,6 +9,7 @@ import { HiOutlineShoppingCart } from "react-icons/hi";
 import Logo from "../../../assets/Logo/logo.PNG";
 
 function Navbar() {
+  const [{ basket }] = useStateValue();
   return (
     <div id="top" className="navbar w-100 m-0 p-0 position-static">
       <Link to="/">
@@ -48,7 +51,7 @@ function Navbar() {
         >
           <HiOutlineShoppingCart className="fs-2" />
           <span className="nav__optionNumber position-absolute fw-bold rounded-pill px-1">
-            0
+            {basket.length}
           </span>
         </Link>
       </div>
