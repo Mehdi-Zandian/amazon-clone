@@ -7,7 +7,7 @@ function App() {
     <Router>
       <div
         className="app"
-        style={{ overflowX: "hidden", backgroundColor: "rgb(230, 230, 230)" }}
+        style={{ overflow: "hidden", backgroundColor: "rgb(230, 230, 230)" }}
       >
         <Routes>
           <Route exact path="/" element={<HomeScreen />} />

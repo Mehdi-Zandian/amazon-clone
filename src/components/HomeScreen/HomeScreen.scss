@@ -30,6 +30,15 @@
     grid-gap: 30px;
   }
 
+  .homeScreen__back {
+    cursor: pointer;
+    background-color: #232f3e;
+    transition: all 0.3s;
+    &:hover {
+      background-color: lighten(#232f3e, 10%);
+    }
+  }
+
   // Loader spinner
   .loader {
     right: 50%;

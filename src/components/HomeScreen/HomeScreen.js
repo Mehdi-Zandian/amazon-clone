@@ -21,7 +21,7 @@ function HomeScreen() {
   }, []);
 
   return (
-    <div style={{ height: "100vh" }}>
+    <div>
       <Navbar />
       <div className="homeScreen__wrapper mx-auto">
         <div className="homeScreen__banner w-100"></div>
@@ -55,6 +55,13 @@ function HomeScreen() {
             <span className="loader position-fixed"></span>
           )}
         </div>
+
+        <a
+          href="#top"
+          className="homeScreen__back d-block text-decoration-none px-4 py-3 text-white text-center my-3"
+        >
+          Back to top
+        </a>
       </div>
     </div>
   );

@@ -8,7 +8,7 @@ import Logo from "../../../assets/Logo/logo.PNG";
 
 function Navbar() {
   return (
-    <div className="navbar w-100 m-0 p-0 position-sticky top-0">
+    <div id="top" className="navbar w-100 m-0 p-0 position-static">
       <Link to="/">
         <img
           src={Logo}
