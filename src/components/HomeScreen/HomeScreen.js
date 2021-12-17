@@ -27,33 +27,33 @@ function HomeScreen() {
         <div className="homeScreen__banner w-100"></div>
 
         <div className="homeScreen__row mx-2">
-          {products
-            ? products.map((p, index) => {
-                return (
-                  <Fragment key={p?.id}>
-                    {index === 4 ? (
-                      <img
-                        src={Banner}
-                        alt="Prime day"
-                        className="homeScreen__productsBanner img-fluid my-md-3"
-                      />
-                    ) : null}
-
-                    <Product
-                      id={p?.id}
-                      category={p?.category}
-                      description={p?.description}
-                      title={p?.title}
-                      price={p?.price}
-                      rating={p?.rating.rate}
-                      image={p?.image}
+          {products ? (
+            products.map((p, index) => {
+              return (
+                <Fragment key={p?.id}>
+                  {index === 4 ? (
+                    <img
+                      src={Banner}
+                      alt="Prime day"
+                      className="homeScreen__productsBanner img-fluid my-md-3"
                     />
-                  </Fragment>
-                );
-              })
-            : "No"}
+                  ) : null}
 
-          {/* Put loader or Message in place of NO */}
+                  <Product
+                    id={p?.id}
+                    category={p?.category}
+                    description={p?.description}
+                    title={p?.title}
+                    price={p?.price}
+                    rating={p?.rating.rate}
+                    image={p?.image}
+                  />
+                </Fragment>
+              );
+            })
+          ) : (
+            <span className="loader position-fixed"></span>
+          )}
         </div>
       </div>
     </div>
