@@ -1,0 +1,46 @@
+.product {
+  z-index: 1;
+  transition: all 0.3s;
+  &:hover {
+    transform: scale(101%, 101%);
+  }
+
+  .product__rating {
+    font-size: 10px;
+
+    .product__ratingStar {
+      color: #f0c14b;
+      font-size: 14px;
+    }
+  }
+
+  .product__image {
+    max-height: 200px;
+    object-fit: contain;
+  }
+  .product__btn {
+    opacity: 1;
+    background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+    font-size: 13px;
+    outline: none;
+    transition: opacity 0.3s;
+
+    &:active {
+      background: linear-gradient(to bottom, #f3d078, #f3d078);
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+.product.product__extend {
+  grid-column: 1/3;
+}
+
+@media (max-width: 576px) {
+  .product.product__extend {
+    grid-column: 1/1;
+  }
+}

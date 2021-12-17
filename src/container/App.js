@@ -5,7 +5,10 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 function App() {
   return (
     <Router>
-      <div className="app">
+      <div
+        className="app"
+        style={{ overflow: "hidden", backgroundColor: "rgb(230, 230, 230)" }}
+      >
         <Routes>
           <Route exact path="/" element={<HomeScreen />} />
           <Route exact path="/checkout" element={<CheckoutScreen />} />
