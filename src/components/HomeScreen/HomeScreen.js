@@ -56,12 +56,14 @@ function HomeScreen() {
           )}
         </div>
 
-        <a
-          href="#top"
-          className="homeScreen__back d-block text-decoration-none px-4 py-3 text-white text-center my-3"
-        >
-          Back to top
-        </a>
+        {products ? (
+          <a
+            href="#top"
+            className="homeScreen__back d-block text-decoration-none px-4 py-3 text-white text-center my-3"
+          >
+            Back to top
+          </a>
+        ) : null}
       </div>
     </div>
   );
