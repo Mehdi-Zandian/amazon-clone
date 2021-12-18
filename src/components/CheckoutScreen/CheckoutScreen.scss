@@ -1,0 +1,14 @@
+.checkout {
+  .checkout__wrapper {
+    max-width: 1500px;
+  }
+
+  .product__rating {
+    font-size: 10px;
+
+    .product__ratingStar {
+      color: #f0c14b;
+      font-size: 14px;
+    }
+  }
+}

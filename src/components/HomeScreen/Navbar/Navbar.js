@@ -46,7 +46,7 @@ function Navbar() {
         </Link>
 
         <Link
-          to="/"
+          to="/checkout"
           className="text-decoration-none ms-2 me-3 text-light position-relative d-flex flex-column"
         >
           <HiOutlineShoppingCart className="fs-2" />

@@ -1,0 +1,21 @@
+.product__info {
+  font-size: 15px;
+}
+.product__buttons {
+  .product__buttonsBasket {
+    padding: 5px;
+    opacity: 1;
+    background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+    font-size: 13px;
+    outline: none;
+    transition: opacity 0.3s;
+
+    &:active {
+      background: linear-gradient(to bottom, #f3d078, #f3d078);
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
