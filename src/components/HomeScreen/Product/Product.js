@@ -13,10 +13,11 @@ function Product({ id, category, description, title, image, price, rating }) {
   // context api setup
   const [{}, dispatch] = useStateValue();
   const addToBasket = () => {
+    const newId = id + Math.ceil(Math.random() * 1539);
     dispatch({
       type: "ADD_TO_BASKET",
       item: {
-        id,
+        id: newId,
         category,
         description,
         title,

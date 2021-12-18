@@ -21,7 +21,6 @@ function reducer(state, action) {
         ...state,
         basket: newBasket,
       };
-
       break;
     default:
       return state;

@@ -16,10 +16,11 @@ function CheckoutProduct({ id, description, title, image, price, rating }) {
 
   // add to basket action
   const addTobasket = () => {
+    const newId = id + Math.ceil(Math.random() * 1953);
     dispatch({
       type: "ADD_TO_BASKET",
       item: {
-        id,
+        id: newId,
         description,
         title,
         image,
