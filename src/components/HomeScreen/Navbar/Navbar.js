@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 // context
 import { useStateValue } from "../../../StateContext/StateProvider";
+// Auth0
+import { useAuth0 } from "@auth0/auth0-react";
 // UI
 import "./Navbar.scss";
 import { MdSearch } from "react-icons/md";
@@ -9,7 +11,10 @@ import { HiOutlineShoppingCart } from "react-icons/hi";
 import Logo from "../../../assets/Logo/logo.PNG";
 
 function Navbar() {
+  // context setup
   const [{ basket }] = useStateValue();
+  // Auth0 setup
+  const { user, isAuthenticated, loginWithPopup, logout } = useAuth0();
   return (
     <div id="top" className="navbar w-100 m-0 p-0 position-static">
       <Link to="/">
@@ -34,8 +39,17 @@ function Navbar() {
           to="/"
           className="text-decoration-none nav__optionsMobile mx-2 text-light d-flex flex-column justify-content-center"
         >
-          <span className="nav__optionsFirstLine">Hello Mehdi</span>
-          <span>Sign In</span>
+          {isAuthenticated ? (
+            <>
+              <span className="nav__optionsFirstLine">Hello {user?.name}</span>
+              <span onClick={() => logout()}>Sign Out</span>
+            </>
+          ) : (
+            <>
+              <span className="nav__optionsFirstLine">Account</span>
+              <span onClick={() => loginWithPopup()}>Sign In</span>
+            </>
+          )}
         </Link>
         <Link
           to="/"

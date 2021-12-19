@@ -20,6 +20,15 @@
     }
   }
 
+  .checkout__btnStyle {
+    background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
+    &:active {
+      background: linear-gradient(to bottom, #f3d078, #f3d078);
+    }
+    &:hover {
+      opacity: 0.8;
+    }
+  }
   .checkout__btnSignin {
     border-color: #ececec;
     background: linear-gradient(to bottom, #9b9b9b, #3d3d3d);

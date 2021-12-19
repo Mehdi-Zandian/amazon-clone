@@ -3,6 +3,8 @@ import CheckoutProduct from "./CheckoutProduct/CheckoutProduct";
 // context
 import { useStateValue } from "../../StateContext/StateProvider";
 import { getBasketTotal } from "../../StateContext/reducer";
+// Auth0 setup
+import { useAuth0 } from "@auth0/auth0-react";
 // UI
 import Exclusive from "../../assets/exclusive/exclusive.jpg";
 import "./CheckoutScreen.scss";
@@ -10,6 +12,8 @@ import "./CheckoutScreen.scss";
 function CheckoutScreen() {
   // context setup
   const [{ basket }] = useStateValue();
+  // Auth0 setup
+  const { isAuthenticated } = useAuth0();
 
   return (
     <div className="checkout">
@@ -55,14 +59,15 @@ function CheckoutScreen() {
                 Subtotal ({basket.length} items): {`£${getBasketTotal(basket)}`}
               </h6>
               <button
-                disabled={!false}
-                className={`btn p-1 shadow-none text-white ${
-                  !false && "checkout__btnSignin"
+                disabled={!isAuthenticated}
+                className={`checkout__btnStyle btn p-1 shadow-none text-dark ${
+                  !isAuthenticated && "checkout__btnSignin text-white"
                 }`}
                 style={{ fontSize: "15px" }}
               >
-                {/* if has user checkout else cant checkout */}
-                {false ? "Proceed to checkout" : "Sign in to checkout"}
+                {isAuthenticated
+                  ? "Proceed to checkout"
+                  : "Sign in to checkout"}
               </button>
             </>
           </div>

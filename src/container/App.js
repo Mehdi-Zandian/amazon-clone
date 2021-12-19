@@ -9,7 +9,6 @@ function App() {
         <Routes>
           <Route exact path="/" element={<HomeScreen />} />
           <Route exact path="/checkout" element={<CheckoutScreen />} />
-          {/* Login page */}
           {/* 404 page */}
         </Routes>
       </div>
