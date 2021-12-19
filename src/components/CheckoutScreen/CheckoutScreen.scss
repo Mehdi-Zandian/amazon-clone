@@ -3,6 +3,14 @@
     max-width: 1500px;
   }
 
+  .checkout__banner {
+    mask-image: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 1) 75%,
+      rgba(0, 0, 0, 0)
+    );
+  }
+
   .product__rating {
     font-size: 10px;
 
@@ -10,5 +18,11 @@
       color: #f0c14b;
       font-size: 14px;
     }
+  }
+
+  .checkout__btnSignin {
+    border-color: #ececec;
+    background: linear-gradient(to bottom, #9b9b9b, #3d3d3d);
+    cursor: not-allowed;
   }
 }
