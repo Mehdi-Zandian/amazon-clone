@@ -12,12 +12,17 @@ function HomeScreen() {
   // get products from API
   const [products, setProducts] = useState(null);
   useEffect(() => {
+    // abort control
+    const abortCont = new AbortController();
     async function fetch() {
-      const res = await axios.get(`${requests.fetchAllProducts}?limit=15`);
+      const res = await axios.get(`${requests.fetchAllProducts}?limit=15`, {
+        signal: abortCont.signal,
+      });
       const data = await res.data;
       setProducts(data);
     }
     fetch();
+    return () => abortCont.abort();
   }, []);
 
   return (

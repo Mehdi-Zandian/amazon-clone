@@ -48,8 +48,8 @@ function CheckoutScreen() {
           )}
         </div>
 
-        <div className="d-flex flex-column bg-white p-3 my-md-0 my-3 col-md-2 col-12 shadow-sm">
-          {basket.length > 0 && (
+        {basket.length > 0 && (
+          <div className="d-flex flex-column bg-white p-3 my-md-0 my-3 col-md-2 col-12 shadow-sm">
             <>
               <h6 style={{ fontSize: "15px" }} className="fw-bold px-2">
                 Subtotal ({basket.length} items): {`£${getBasketTotal(basket)}`}
@@ -65,8 +65,8 @@ function CheckoutScreen() {
                 {false ? "Proceed to checkout" : "Sign in to checkout"}
               </button>
             </>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
