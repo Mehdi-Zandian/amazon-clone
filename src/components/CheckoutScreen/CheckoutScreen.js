@@ -1,5 +1,6 @@
-import Navbar from "../HomeScreen/Navbar/Navbar";
+import React from "react";
 import CheckoutProduct from "./CheckoutProduct/CheckoutProduct";
+import { Link } from "react-router-dom";
 // context
 import { useStateValue } from "../../StateContext/StateProvider";
 import { getBasketTotal } from "../../StateContext/reducer";
@@ -11,13 +12,28 @@ import "./CheckoutScreen.scss";
 
 function CheckoutScreen() {
   // context setup
-  const [{ basket }] = useStateValue();
+  const [{ basket, order }, dispatch] = useStateValue();
   // Auth0 setup
   const { isAuthenticated } = useAuth0();
-
+  // Clear basket
+  const clearBasket = () => {
+    dispatch({
+      type: "CLEAR_BASKET",
+    });
+  };
+  // add proceeded products to order list
+  const addToOrderList = () => {
+    basket.map((p) => {
+      dispatch({
+        type: "ADD_TO_ORDER",
+        item: p,
+      });
+    });
+    // clear basket after proceed to checkout
+    clearBasket();
+  };
   return (
     <div className="checkout">
-      <Navbar />
       <div className="checkout__wrapper mx-auto d-flex flex-md-row flex-column">
         <div>
           <img
@@ -28,7 +44,14 @@ function CheckoutScreen() {
 
           {basket?.length === 0 ? (
             <div className="">
-              <h2 className="fw-bold p-2">Your Shopping basket is empty ...</h2>
+              <h3 className="fw-bold p-2">
+                Your Shopping basket is empty ... <br />{" "}
+                {order.length > 0 && (
+                  <Link to="/order" className="fs-5">
+                    Checkout Order List
+                  </Link>
+                )}
+              </h3>
             </div>
           ) : (
             <div className="p-2 bg-white shadow-sm">
@@ -48,6 +71,13 @@ function CheckoutScreen() {
                   />
                 );
               })}
+              <button
+                onClick={() => clearBasket()}
+                title="You will not be able to see the Basket items anymore !"
+                className="btn btn-sm btn-danger mx-auto d-block mb-5 shadow w-50"
+              >
+                Clear Basket !
+              </button>
             </div>
           )}
         </div>
@@ -60,6 +90,7 @@ function CheckoutScreen() {
               </h6>
               <button
                 disabled={!isAuthenticated}
+                onClick={() => addToOrderList()}
                 className={`checkout__btnStyle btn p-1 shadow-none text-dark ${
                   !isAuthenticated && "checkout__btnSignin text-white"
                 }`}
@@ -77,4 +108,4 @@ function CheckoutScreen() {
   );
 }
 
-export default CheckoutScreen;
+export default React.memo(CheckoutScreen);

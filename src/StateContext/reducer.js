@@ -1,5 +1,6 @@
 export const initState = {
   basket: [],
+  order: [],
 };
 
 export const getBasketTotal = (basket) => {
@@ -24,6 +25,25 @@ function reducer(state, action) {
       return {
         ...state,
         basket: newBasket,
+      };
+      break;
+
+    case "CLEAR_BASKET":
+      return {
+        ...state,
+        basket: [],
+      };
+      break;
+    case "ADD_TO_ORDER":
+      return {
+        ...state,
+        order: [...state.order, action.item],
+      };
+      break;
+    case "CLEAR_ORDER":
+      return {
+        ...state,
+        order: [],
       };
       break;
     default:

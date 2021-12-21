@@ -35,24 +35,30 @@ function Navbar() {
       </div>
 
       <div className="nav__options d-flex justify-content-evenly">
-        <Link
-          to="/"
-          className="text-decoration-none nav__optionsMobile mx-2 text-light d-flex flex-column justify-content-center"
-        >
+        <div className="nav__optionsMobile mx-2 text-light d-flex flex-column justify-content-center">
           {isAuthenticated ? (
             <>
-              <span className="nav__optionsFirstLine">Hello {user?.name}</span>
-              <span onClick={() => logout()}>Sign Out</span>
+              <span className="nav__optionsFirstLine">
+                Hello {user?.given_name}
+              </span>
+              <span style={{ cursor: "pointer" }} onClick={() => logout()}>
+                Sign Out
+              </span>
             </>
           ) : (
             <>
               <span className="nav__optionsFirstLine">Account</span>
-              <span onClick={() => loginWithPopup()}>Sign In</span>
+              <span
+                style={{ cursor: "pointer" }}
+                onClick={() => loginWithPopup()}
+              >
+                Sign In
+              </span>
             </>
           )}
-        </Link>
+        </div>
         <Link
-          to="/"
+          to="/Order"
           className="text-decoration-none mx-2 text-light d-flex flex-column justify-content-center"
         >
           <span className="nav__optionsFirstLine">Returns</span>

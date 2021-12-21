@@ -1,4 +1,3 @@
-import Navbar from "./Navbar/Navbar";
 import Product from "./Product/Product";
 // axios
 import axios from "../../API_FakeStore/axios";
@@ -27,7 +26,6 @@ function HomeScreen() {
 
   return (
     <div>
-      <Navbar />
       <div className="homeScreen__wrapper mx-auto">
         <div className="homeScreen__banner w-100"></div>
 

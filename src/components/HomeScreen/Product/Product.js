@@ -6,8 +6,8 @@ import "./Product.scss";
 
 function Product({ id, category, description, title, image, price, rating }) {
   // make long descriptions short
-  const truncate = (string, num) => {
-    return string.length > num ? string.substr(0, num - 1) + " ..." : string;
+  const truncate = (text, num) => {
+    return text.length > num ? text.substr(0, num - 1) + " ..." : text;
   };
 
   // context api setup

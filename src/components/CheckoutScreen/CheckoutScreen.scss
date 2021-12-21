@@ -11,15 +11,6 @@
     );
   }
 
-  .product__rating {
-    font-size: 10px;
-
-    .product__ratingStar {
-      color: #f0c14b;
-      font-size: 14px;
-    }
-  }
-
   .checkout__btnStyle {
     background: linear-gradient(to bottom, #f7dfa5, #f0c14b);
     &:active {

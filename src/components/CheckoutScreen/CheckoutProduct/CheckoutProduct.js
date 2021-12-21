@@ -5,10 +5,18 @@ import { useStateValue } from "../../../StateContext/StateProvider";
 import "./CheckoutProduct.scss";
 import { ImStarFull } from "react-icons/im";
 
-function CheckoutProduct({ id, description, title, image, price, rating }) {
+function CheckoutProduct({
+  orderUI = false,
+  id,
+  description,
+  title,
+  image,
+  price,
+  rating,
+}) {
   // make long descriptions short
-  const truncate = (string, num) => {
-    return string.length > num ? string.substr(0, num - 1) + " ..." : string;
+  const truncate = (text, num) => {
+    return text.length > num ? text.substr(0, num - 1) + " ..." : text;
   };
 
   // context setup
@@ -73,20 +81,22 @@ function CheckoutProduct({ id, description, title, image, price, rating }) {
           </p>
         </div>
 
-        <div className="product__buttons d-flex flex-column col-12 col-sm-4 col-md-2 ms-md-2">
-          <button
-            onClick={addTobasket}
-            className="shadow-none product__buttonsBasket mb-2 btn btn-sm"
-          >
-            Add to Basket
-          </button>
-          <button
-            onClick={removeFromBasket}
-            className="shadow-none product__buttonsBasket btn btn-sm"
-          >
-            Remove from Basket
-          </button>
-        </div>
+        {!orderUI && (
+          <div className="product__buttons d-flex flex-column col-12 col-sm-4 col-md-2 ms-md-2">
+            <button
+              onClick={addTobasket}
+              className="shadow-none product__buttonsBasket mb-2 btn btn-sm"
+            >
+              Add to Basket
+            </button>
+            <button
+              onClick={removeFromBasket}
+              className="shadow-none product__buttonsBasket btn btn-sm"
+            >
+              Remove from Basket
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
