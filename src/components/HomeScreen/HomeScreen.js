@@ -1,4 +1,3 @@
-import Navbar from "./Navbar/Navbar";
 import Product from "./Product/Product";
 // axios
 import axios from "../../API_FakeStore/axios";
@@ -9,20 +8,24 @@ import Banner from "../../assets/banner/prime-day-product-banner.jpg";
 import { Fragment, useEffect, useState } from "react";
 
 function HomeScreen() {
+  // get products from API
   const [products, setProducts] = useState(null);
-
   useEffect(() => {
+    // abort control
+    const abortCont = new AbortController();
     async function fetch() {
-      const res = await axios.get(`${requests.fetchAllProducts}?limit=15`);
+      const res = await axios.get(`${requests.fetchAllProducts}?limit=15`, {
+        signal: abortCont.signal,
+      });
       const data = await res.data;
       setProducts(data);
     }
     fetch();
+    return () => abortCont.abort();
   }, []);
 
   return (
     <div>
-      <Navbar />
       <div className="homeScreen__wrapper mx-auto">
         <div className="homeScreen__banner w-100"></div>
 

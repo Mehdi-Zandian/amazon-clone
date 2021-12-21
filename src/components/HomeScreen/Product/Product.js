@@ -1,10 +1,31 @@
+// context
+import { useStateValue } from "../../../StateContext/StateProvider";
 // UI
 import { ImStarFull } from "react-icons/im";
 import "./Product.scss";
 
 function Product({ id, category, description, title, image, price, rating }) {
-  const truncate = (string, num) => {
-    return string.length > num ? string.substr(0, num - 1) + " ..." : string;
+  // make long descriptions short
+  const truncate = (text, num) => {
+    return text.length > num ? text.substr(0, num - 1) + " ..." : text;
+  };
+
+  // context api setup
+  const [{}, dispatch] = useStateValue();
+  const addToBasket = () => {
+    const newId = id + Math.ceil(Math.random() * 1539);
+    dispatch({
+      type: "ADD_TO_BASKET",
+      item: {
+        id: newId,
+        category,
+        description,
+        title,
+        image,
+        price,
+        rating,
+      },
+    });
   };
 
   return (
@@ -33,7 +54,10 @@ function Product({ id, category, description, title, image, price, rating }) {
         <strong>{price}</strong>
       </p>
 
-      <button className="product__btn btn w-100 p-1 shadow-none rounded mx-auto">
+      <button
+        onClick={addToBasket}
+        className="product__btn btn w-100 p-1 shadow-none rounded mx-auto"
+      >
         Add to basket
       </button>
     </div>
