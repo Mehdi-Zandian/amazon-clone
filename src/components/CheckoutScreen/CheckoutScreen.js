@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import CheckoutProduct from "./CheckoutProduct/CheckoutProduct";
 import { Link } from "react-router-dom";
 // context
@@ -11,6 +11,8 @@ import Exclusive from "../../assets/exclusive/exclusive.jpg";
 import "./CheckoutScreen.scss";
 
 function CheckoutScreen() {
+  // show loader of proceed btn
+  const [loaderShow, setLoaderShow] = useState(false);
   // context setup
   const [{ basket, order }, dispatch] = useStateValue();
   // Auth0 setup
@@ -23,14 +25,18 @@ function CheckoutScreen() {
   };
   // add proceeded products to order list
   const addToOrderList = () => {
-    basket.map((p) => {
-      dispatch({
-        type: "ADD_TO_ORDER",
-        item: p,
+    setLoaderShow(true);
+    setTimeout(() => {
+      setLoaderShow(false);
+      basket.map((p) => {
+        dispatch({
+          type: "ADD_TO_ORDER",
+          item: p,
+        });
       });
-    });
-    // clear basket after proceed to checkout
-    clearBasket();
+      // clear basket after proceed to checkout
+      clearBasket();
+    }, 2000);
   };
   return (
     <div className="checkout">
@@ -96,9 +102,15 @@ function CheckoutScreen() {
                 }`}
                 style={{ fontSize: "15px" }}
               >
-                {isAuthenticated
-                  ? "Proceed to checkout"
-                  : "Sign in to checkout"}
+                {isAuthenticated ? (
+                  loaderShow ? (
+                    <span className="loader"></span>
+                  ) : (
+                    "Proceed to checkout"
+                  )
+                ) : (
+                  "Sign in to checkout"
+                )}
               </button>
             </>
           </div>
