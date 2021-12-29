@@ -36,6 +36,7 @@ function HomeScreen() {
                 <Fragment key={p?.id}>
                   {index === 4 ? (
                     <img
+                      loading="lazy"
                       src={Banner}
                       alt="Prime day"
                       className="homeScreen__productsBanner img-fluid my-md-3"

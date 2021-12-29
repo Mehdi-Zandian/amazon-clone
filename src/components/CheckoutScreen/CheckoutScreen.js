@@ -49,7 +49,7 @@ function CheckoutScreen() {
           />
 
           {basket?.length === 0 ? (
-            <div className="">
+            <div>
               <h3 className="fw-bold p-2">
                 Your Shopping basket is empty ... <br />{" "}
                 {order.length > 0 && (

@@ -35,7 +35,12 @@ function Product({ id, category, description, title, image, price, rating }) {
       } product d-flex flex-column justify-content-between bg-white px-3 pt-1 pb-4 rounded-3 shadow`}
     >
       <small className="text-secondary text-end">{category}</small>
-      <img src={image} className="product__image w-100 mb-2" alt="Product" />
+      <img
+        loading="lazy"
+        src={image}
+        className="product__image w-100 mb-2"
+        alt="Product"
+      />
       <p className="m-0 fw-bold" style={{ wordWrap: "break-word" }}>
         {truncate(title, 70)}
       </p>

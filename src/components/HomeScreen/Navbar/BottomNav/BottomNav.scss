@@ -1,0 +1,53 @@
+.bottom__nav {
+  background-color: #232f3e;
+  transition: all 0.3s;
+  &:hover {
+    background-color: lighten(#232f3e, 4%);
+  }
+
+  .bottom__navAll {
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+    animation: borderAnimate 2s infinite;
+
+    @keyframes borderAnimate {
+      0% {
+        border: 1px solid transparent;
+      }
+
+      50% {
+        border: 1px solid #ccc;
+      }
+
+      100% {
+        border: 1px solid transparent;
+      }
+    }
+  }
+
+  .bottom_navItems span {
+    transition: all 0.3s;
+    border-radius: 5px;
+    margin: 0 5px;
+    padding: 5px 3px;
+    cursor: pointer;
+    border: 1px solid transparent;
+
+    &:hover {
+      border: 1px solid #ccc;
+    }
+  }
+
+  .offcanvas__items {
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      background-color: darken(#ffff, 7%);
+      svg {
+        color: #000 !important;
+      }
+    }
+  }
+}

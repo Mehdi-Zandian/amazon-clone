@@ -12,19 +12,25 @@
     }
   }
 
+  .navbar__searchInput:focus .navbar__search {
+    box-shadow: #ffaf47 0 0 0 3px inset !important;
+  }
+
   .navbar__search {
     flex: 1;
 
     .navbar__searchInput {
-      height: 35px !important;
+      height: 45px !important;
       outline: none;
+      border-radius: 10px 0 0 10px;
     }
 
     .navbr__searchIcon {
-      width: 30px !important;
-      height: 35px !important;
-      padding: 2px;
-      background-color: #cd9042;
+      border-radius: 0 10px 10px 0;
+      width: 40px !important;
+      height: 45px !important;
+      padding: 5px;
+      background-color: #febd69;
       cursor: pointer;
     }
   }
