@@ -23,6 +23,13 @@
       height: 45px !important;
       outline: none;
       border-radius: 10px 0 0 10px;
+      background-color: lighten(#131921, 15%);
+      color: #f5f5f5;
+      box-shadow: 10px 0 5px #111;
+
+      &::placeholder {
+        opacity: 0.4;
+      }
     }
 
     .navbr__searchIcon {

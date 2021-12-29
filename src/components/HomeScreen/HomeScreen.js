@@ -1,4 +1,5 @@
 import Product from "./Product/Product";
+import Slider from "./Slider";
 // axios
 import axios from "../../API_FakeStore/axios";
 import requests from "../../API_FakeStore/requests";
@@ -26,9 +27,9 @@ function HomeScreen() {
 
   return (
     <div>
-      <div className="homeScreen__wrapper mx-auto">
-        <div className="homeScreen__banner w-100"></div>
+      <Slider />
 
+      <div className="homeScreen__wrapper mx-auto">
         <div className="homeScreen__row mx-2">
           {products ? (
             products.map((p, index) => {
@@ -56,7 +57,9 @@ function HomeScreen() {
               );
             })
           ) : (
-            <span className="loader position-fixed"></span>
+            <div className="loader__wrapper">
+              <span className="loader position-fixed"></span>
+            </div>
           )}
         </div>
 

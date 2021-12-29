@@ -45,6 +45,7 @@ function Navbar() {
 
         <div className="navbar__search d-flex">
           <input
+            placeholder="Search In Amazon ..."
             type="text"
             className="navbar__searchInput w-100 border-0 px-2"
           />
@@ -53,7 +54,7 @@ function Navbar() {
 
         <div
           className="mx-4 d-none d-md-block"
-          style={{ width: "25px", cursor: "pointer" }}
+          style={{ maxWidth: "25px", width: "25px", cursor: "pointer" }}
         >
           <img src={flag} alt="" />
         </div>

@@ -2,23 +2,28 @@ body {
   background-color: rgb(230, 230, 230);
 }
 
+.swiper-button-prev,
+.swiper-button-next {
+  top: 200px !important;
+  color: #232f3e !important;
+}
+
+.swiper__img {
+  width: 100%;
+  height: 650px;
+  object-fit: cover !important;
+  object-position: center center !important;
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 1) 90%,
+    rgba(0, 0, 0, 0)
+  );
+}
+
 .homeScreen__wrapper {
   max-width: 1450px;
+  margin-top: -230px;
 
-  .homeScreen__banner {
-    background: center no-repeat;
-    background-image: url("../../assets/banner/prime-day-banner.jpg");
-    background-size: cover;
-    object-fit: cover;
-    height: 350px;
-    z-index: -1;
-    margin-bottom: -50px;
-    mask-image: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 1) 75%,
-      rgba(0, 0, 0, 0)
-    );
-  }
   .homeScreen__productsBanner {
     grid-column: 1/5;
     mask-image: radial-gradient(
@@ -44,49 +49,38 @@ body {
   }
 
   // Loader spinner
+  .loader__wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 500;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
   .loader {
-    right: 50%;
-    bottom: 10%;
-    width: 60px;
-    height: 60px;
+    position: absolute;
+    left: 48%;
+    top: 70%;
+    width: 48px;
+    height: 48px;
+    background: #232f3e;
     border-radius: 50%;
     position: relative;
-    animation: rotate 1s linear infinite;
+    animation: skLinRotate 1s ease-in-out infinite alternate;
   }
-  .loader::before,
-  .loader::after {
+  .loader:after {
     content: "";
-    box-sizing: border-box;
     position: absolute;
-    inset: 0px;
+    inset: 5px;
     border-radius: 50%;
-    border: 5px solid #fff;
-    animation: prixClipFix 2s linear infinite;
+    border: 5px solid transparent;
+    border-top-color: #febd69;
   }
-  .loader::after {
-    transform: rotate3d(90, 90, 0, 180deg);
-    border-color: #ff3d00;
-  }
-
-  @keyframes rotate {
-    0% {
-      transform: rotate(0deg);
-    }
+  @keyframes skLinRotate {
+    95%,
     100% {
-      transform: rotate(360deg);
-    }
-  }
-
-  @keyframes prixClipFix {
-    0% {
-      clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
-    }
-    50% {
-      clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
-    }
-    75%,
-    100% {
-      clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+      transform: rotate(840deg);
     }
   }
 }

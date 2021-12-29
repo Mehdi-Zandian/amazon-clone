@@ -85,7 +85,7 @@ function OffCanvasBody() {
           </div>
           <div className="offcanvas__items d-flex justify-content-between align-items-center p-3 ps-4">
             <span className="d-flex align-items-center">
-              <img src={flag} className="col-2 me-2" />
+              <img src={flag} style={{ maxWidth: "18px" }} className="me-2" />
               <span className="col-12">United States</span>
             </span>
             <IoIosArrowForward className="text-muted fs-5" />
