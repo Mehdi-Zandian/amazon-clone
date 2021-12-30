@@ -7,6 +7,7 @@ It is my Amazon clone project built with ReactJS and Fake Store API.
 - Fake Store API (Get sample products)
 - Auth0 (Authenticate with Google)
 - Context API (State manager)
+- Swiper JS (Great Slider library)
 - Bootstrap V5.0
 - Sass
 - CSS Grid (Responsive grid of home screen products)
