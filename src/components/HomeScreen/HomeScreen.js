@@ -1,5 +1,7 @@
 import Product from "./Product/Product";
 import Slider from "./Slider";
+// notif
+import { Flip, ToastContainer } from "react-toastify";
 // axios
 import axios from "../../API_FakeStore/axios";
 import requests from "../../API_FakeStore/requests";
@@ -28,7 +30,13 @@ function HomeScreen() {
   return (
     <div>
       <Slider />
-
+      <ToastContainer
+        transition={Flip}
+        newestOnTop={false}
+        rtl={false}
+        pauseOnFocusLoss
+        limit={3}
+      />
       <div className="homeScreen__wrapper mx-auto">
         <div className="homeScreen__row mx-2">
           {products ? (

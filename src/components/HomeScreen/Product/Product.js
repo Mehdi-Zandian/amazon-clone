@@ -1,5 +1,8 @@
 // context
 import { useStateValue } from "../../../StateContext/StateProvider";
+// notif
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // UI
 import { ImStarFull } from "react-icons/im";
 import "./Product.scss";
@@ -8,6 +11,20 @@ function Product({ id, category, description, title, image, price, rating }) {
   // make long descriptions short
   const truncate = (text, num) => {
     return text.length > num ? text.substr(0, num - 1) + " ..." : text;
+  };
+
+  // notif
+  const showNotif = () => {
+    toast.success("Saved to your cart", {
+      theme: "dark",
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
   };
 
   // context api setup
@@ -26,6 +43,7 @@ function Product({ id, category, description, title, image, price, rating }) {
         rating,
       },
     });
+    showNotif();
   };
 
   return (
