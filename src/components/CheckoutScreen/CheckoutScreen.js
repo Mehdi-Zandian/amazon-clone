@@ -15,6 +15,7 @@ import { AiFillEuroCircle } from "react-icons/ai";
 function CheckoutScreen() {
   // show loader of proceed btn
   const [loaderShow, setLoaderShow] = useState(false);
+  const [loaderShowBasket, setLoaderShowBasket] = useState(false);
   // context setup
   const [{ basket, order }, dispatch] = useStateValue();
   // Auth0 setup
@@ -26,9 +27,9 @@ function CheckoutScreen() {
     });
   };
   const clearBasketLoader = () => {
-    setLoaderShow(true);
+    setLoaderShowBasket(true);
     setTimeout(() => {
-      setLoaderShow(false);
+      setLoaderShowBasket(false);
       clearBasket();
     }, 2500);
   };
@@ -113,7 +114,7 @@ function CheckoutScreen() {
                 title="You will not be able to see the Basket items anymore !"
                 className="btn btn-sm btn-danger mx-auto d-block mb-5 shadow w-50 py-2"
               >
-                {loaderShow ? (
+                {loaderShowBasket ? (
                   <span className="loader"></span>
                 ) : (
                   "Clear Basket !"
@@ -141,14 +142,14 @@ function CheckoutScreen() {
                 </p>
               </div>
               <button
-                disabled={!true}
+                disabled={!isAuthenticated}
                 onClick={() => addToOrderList()}
                 className={`checkout__btnStyle btn p-1 shadow-none text-dark ${
-                  !true && "checkout__btnSignin text-white"
+                  !isAuthenticated && "checkout__btnSignin text-white"
                 }`}
                 style={{ fontSize: "15px" }}
               >
-                {true ? (
+                {isAuthenticated ? (
                   loaderShow ? (
                     <span className="loader"></span>
                   ) : (
