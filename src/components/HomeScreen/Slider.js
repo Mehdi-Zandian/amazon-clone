@@ -1,15 +1,17 @@
-import { Navigation, Pagination, Autoplay, A11y } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react/swiper-react.js";
+import SwiperCore, { Navigation, Pagination, Autoplay, A11y } from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 // import swiper styles
-import "swiper/swiper.scss";
-import "swiper/modules/navigation/navigation.scss";
-import "swiper/modules/pagination/pagination.scss";
-import "swiper/modules/autoplay/autoplay";
+import "swiper/css";
+import "swiper/css/a11y";
+import "swiper/css/autoplay";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+// install swiper styles
+SwiperCore.use([Navigation, Pagination, Autoplay, A11y]);
 
 function Slider() {
   return (
     <Swiper
-      modules={[Navigation, Pagination, Autoplay, A11y]}
       navigation
       pagination={{ type: "progressbar" }}
       scrollbar={{ draggable: false, hide: true }}
