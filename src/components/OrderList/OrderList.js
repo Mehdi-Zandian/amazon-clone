@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useStateValue } from "../../StateContext/StateProvider";
 // UI
 import "./OrderList.scss";
-import OrderImage from "../../assets/order/order.png";
+import OrderImage from "../../assets/order/order.jpg";
 import emptyOrder from "../../assets/Empty/empty-order.svg";
 
 function OrderList() {

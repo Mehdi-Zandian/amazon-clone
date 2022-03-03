@@ -138,7 +138,7 @@ function CheckoutScreen() {
                   </span>
                 </p>
                 <p className="w-100 p-1 text-center bg-danger text-white my-1 rounded">
-                  £{getBasketTotal(basket)}
+                  £{Math.floor(getBasketTotal(basket))}
                 </p>
               </div>
               <button

@@ -15,9 +15,9 @@ function Product({ id, category, description, title, image, price, rating }) {
 
   // notif
   const showNotif = () => {
-    toast.success("Saved to your cart", {
+    toast.success("Added to your basket.", {
       theme: "dark",
-      position: "top-right",
+      position: "top-left",
       autoClose: 5000,
       hideProgressBar: false,
       closeOnClick: true,

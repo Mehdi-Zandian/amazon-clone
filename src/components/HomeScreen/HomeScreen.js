@@ -2,6 +2,8 @@ import Product from "./Product/Product";
 import Slider from "./Slider";
 // notif
 import { Flip, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // axios
 import axios from "../../API_FakeStore/axios";
 import requests from "../../API_FakeStore/requests";
@@ -13,15 +15,35 @@ import { Fragment, useEffect, useState } from "react";
 function HomeScreen() {
   // get products from API
   const [products, setProducts] = useState(null);
+
+  // notif
+  const showNotif = (text) => {
+    toast.error(text, {
+      theme: "dark",
+      position: "top-left",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: false,
+      draggable: true,
+      progress: undefined,
+    });
+  };
+
   useEffect(() => {
     // abort control
     const abortCont = new AbortController();
     async function fetch() {
-      const res = await axios.get(`${requests.fetchAllProducts}?limit=15`, {
-        signal: abortCont.signal,
-      });
-      const data = await res.data;
-      setProducts(data);
+      try {
+        const res = await axios.get(`${requests.fetchAllProducts}?limit=15`, {
+          signal: abortCont.signal,
+        });
+        if (res.statusText !== "OK") throw Error("Something Went Wrong !");
+        const data = await res.data;
+        setProducts(data);
+      } catch (err) {
+        showNotif(err.message);
+      }
     }
     fetch();
     return () => abortCont.abort();

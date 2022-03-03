@@ -16,6 +16,7 @@
 
   .product__image {
     max-height: 200px;
+    min-height: 200px !important;
     object-fit: contain;
   }
   .product__btn {

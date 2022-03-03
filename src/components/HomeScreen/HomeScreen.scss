@@ -9,7 +9,7 @@ body {
 }
 
 .swiper__img {
-  width: 100%;
+  width: 100% !important;
   height: 650px;
   object-fit: cover !important;
   object-position: center center !important;
@@ -109,7 +109,18 @@ body {
 }
 
 @media (max-width: 768px) {
+  .swiper__img {
+    height: 300px;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    top: 100px !important;
+  }
+
   .homeScreen__wrapper {
+    margin-top: -80px;
+
     .homeScreen__productsBanner {
       grid-column: 1/3;
     }
