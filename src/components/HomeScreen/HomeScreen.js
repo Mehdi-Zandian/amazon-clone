@@ -14,7 +14,7 @@ import { Fragment, useEffect, useState } from "react";
 
 function HomeScreen() {
   // get products from API
-  const [products, setProducts] = useState(null);
+  const [products, setProducts] = useState([]);
 
   // notif
   const showNotif = (text) => {
@@ -38,7 +38,7 @@ function HomeScreen() {
         const res = await axios.get(`${requests.fetchAllProducts}?limit=15`, {
           signal: abortCont.signal,
         });
-        if (res.statusText !== "OK") throw Error("Something Went Wrong !");
+        if (res.status !== 200) throw Error("Something Went Wrong !");
         const data = await res.data;
         setProducts(data);
       } catch (err) {
@@ -61,7 +61,7 @@ function HomeScreen() {
       />
       <div className="homeScreen__wrapper mx-auto">
         <div className="homeScreen__row mx-2">
-          {products ? (
+          {products?.length != 0 ? (
             products.map((p, index) => {
               return (
                 <Fragment key={p?.id}>

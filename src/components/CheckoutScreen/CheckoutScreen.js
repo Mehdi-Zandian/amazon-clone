@@ -54,7 +54,11 @@ function CheckoutScreen() {
         <div className="w-100">
           {basket?.length === 0 ? (
             <div className="w-100">
-              <img src={emptyCart} className="col-4 mt-4 mx-auto d-block" />
+              <img
+                style={{ minHeight: "417px" }}
+                src={emptyCart}
+                className="col-4 mt-4 mx-auto d-block"
+              />
               <span className="fw-bold d-inline-block p-2 text-center mt-3 w-100">
                 Your Shopping basket is empty ... <br />{" "}
                 {order.length > 0 ? (

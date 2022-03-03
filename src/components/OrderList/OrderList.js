@@ -28,7 +28,11 @@ function OrderList() {
     <div className="mx-auto" style={{ maxWidth: "1500px" }}>
       {order?.length === 0 ? (
         <div className="w-100">
-          <img src={emptyOrder} className="col-4 mt-4 mx-auto d-block" />
+          <img
+            style={{ minHeight: "417px" }}
+            src={emptyOrder}
+            className="col-4 mt-4 mx-auto d-block"
+          />
           <span className="fw-bold d-inline-block p-2 text-center mt-3 w-100">
             Your Order List is empty ... <br />{" "}
             {basket.length > 0 ? (
